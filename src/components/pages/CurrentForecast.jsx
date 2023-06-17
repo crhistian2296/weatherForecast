@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import moment from 'moment';
 import { useSelector } from 'react-redux';
 import { capitalizeText } from '../../helpers/capitalizeText';
@@ -11,7 +12,7 @@ import BlanckPage from './BlanckPage';
  */
 const CurrentForecast = () => {
   // Obtencion de informacion concerniente a localizacion y meteorologia
-  const reduxState = useSelector((state) => state);
+  const reduxState = useSelector(state => state);
   const { selectedCity, weatherForecast = {} } = reduxState.location;
 
   // Valida si la informacion existe para renderizar el componente
@@ -51,7 +52,9 @@ const CurrentForecast = () => {
               <div>
                 <p className='m-0 display-2'>{`${temp.toFixed(1)}°C`}</p>
                 <p className='card-text fs-5 m-0'>{`Real feel: ${feels_like}°C`}</p>
-                <p className='card-text fs-5'>{capitalizeText(`${weather.at(0).description}`)}</p>
+                <p className='card-text fs-5'>
+                  {capitalizeText(`${weather.at(0).description}`)}
+                </p>
               </div>
             </div>
             <div className='col-sm-6 col-lg-3 d-flex flex-column align-items-center align-items-sm-start justify-content-center my-3 my-sm-0'>
