@@ -25,5 +25,5 @@ export const WeatherSheet = ({ children, localTime }) => {
 
 WeatherSheet.propTypes = {
   children: PropTypes.element,
-  localTime: PropTypes.object.isRequired,
+  localTime: PropTypes.string.isRequired,
 };

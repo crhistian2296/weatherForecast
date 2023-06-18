@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { createContext } from 'react';
+import { createContext } from 'react';
 import { useToggle } from '../../hooks/useToggle';
 
 export const DataContext = createContext();
@@ -27,7 +27,7 @@ const DataProvider = ({ children }) => {
 };
 
 DataProvider.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.element,
 };
 
 export default DataProvider;
