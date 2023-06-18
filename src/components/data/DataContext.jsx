@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { createContext } from 'react';
 import { useToggle } from '../../hooks/useToggle';
 
@@ -20,7 +21,13 @@ const DataProvider = ({ children }) => {
       toggleSearch,
     },
   };
-  return <DataContext.Provider value={initialValue}>{children}</DataContext.Provider>;
+  return (
+    <DataContext.Provider value={initialValue}>{children}</DataContext.Provider>
+  );
+};
+
+DataProvider.propTypes = {
+  children: PropTypes.string.isRequired,
 };
 
 export default DataProvider;
