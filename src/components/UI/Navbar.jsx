@@ -17,7 +17,7 @@ const Navbar = () => {
   const { sendedSearch, toggleSearch } = searchToggle;
   const dispatch = useDispatch();
 
-  const weatherForecast = useSelector((state) => state.location.weatherForecast);
+  const weatherForecast = useSelector(state => state.location.weatherForecast);
 
   const { formValues, handleInputChange, reset } = useForm({
     location: '',
@@ -25,7 +25,7 @@ const Navbar = () => {
 
   const { location } = formValues;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
 
     if (location) {
@@ -47,19 +47,25 @@ const Navbar = () => {
           <div className='nav navbar-nav'>
             <ul className='nav-fill d-flex justify-content-center p-0 m-0'>
               <NavLink
-                className={`nav-item nav-link ${!weatherForecast && 'disabled'} fs-3 px-md-3`}
+                className={`nav-item nav-link ${
+                  !weatherForecast && 'disabled'
+                } fs-3 px-md-3`}
                 to='/today'
               >
                 Now
               </NavLink>
               <NavLink
-                className={`nav-item nav-link ${!weatherForecast && 'disabled'} fs-3 px-md-3`}
+                className={`nav-item nav-link ${
+                  !weatherForecast && 'disabled'
+                } fs-3 px-md-3`}
                 to='/next48h'
               >
                 48H
               </NavLink>
               <NavLink
-                className={`nav-item nav-link ${!weatherForecast && 'disabled'} fs-3 px-md-3`}
+                className={`nav-item nav-link ${
+                  !weatherForecast && 'disabled'
+                } fs-3 px-md-3`}
                 to='/week'
               >
                 Week
