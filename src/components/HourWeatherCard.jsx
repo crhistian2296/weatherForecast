@@ -41,5 +41,5 @@ export const HourWeatherCard = ({ hourvalues, timezone_offset }) => {
 };
 HourWeatherCard.propTypes = {
   hourvalues: PropTypes.object.isRequired,
-  timezone_offset: PropTypes.object.isRequired,
+  timezone_offset: PropTypes.number.isRequired,
 };

@@ -50,7 +50,7 @@ const Navbar = () => {
                 className={`nav-item nav-link ${
                   !weatherForecast && 'disabled'
                 } fs-3 px-md-3`}
-                to='/today'
+                to='/protected/today/'
               >
                 Now
               </NavLink>
@@ -58,7 +58,7 @@ const Navbar = () => {
                 className={`nav-item nav-link ${
                   !weatherForecast && 'disabled'
                 } fs-3 px-md-3`}
-                to='/next48h'
+                to='/protected/next48h/'
               >
                 48H
               </NavLink>
@@ -66,7 +66,7 @@ const Navbar = () => {
                 className={`nav-item nav-link ${
                   !weatherForecast && 'disabled'
                 } fs-3 px-md-3`}
-                to='/week'
+                to='/protected/week/'
               >
                 Week
               </NavLink>
@@ -83,7 +83,7 @@ const Navbar = () => {
                 type='search'
                 placeholder='Location'
               />
-              <button className='btn btn-outline-dark' type='submit'>
+              <button className='btn btn-outline-dark col m-0' type='submit'>
                 Search
               </button>
             </form>

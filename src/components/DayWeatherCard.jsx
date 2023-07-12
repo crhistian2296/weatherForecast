@@ -54,5 +54,5 @@ export const DayWeatherCard = ({ dayValues, timezone_offset }) => {
 
 DayWeatherCard.propTypes = {
   dayValues: PropTypes.object.isRequired,
-  timezone_offset: PropTypes.object.isRequired,
+  timezone_offset: PropTypes.number.isRequired,
 };
