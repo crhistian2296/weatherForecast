@@ -3,6 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 from flask_migrate import Migrate
 
+routeBase = 'http://localhost:5173/'
+
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -14,7 +16,21 @@ migrate = Migrate(app, db)
 class User(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   username = db.Column(db.String(50), unique=True, nullable=False)
-  password = db.Column(db.String(50), nullable=False)
+  password = db.Column(db.String(50), unique=True, nullable=False)
+
+  def __repr__(self):
+    return f'<User {self.username}>'
+
+  def serialize(self):
+    return {
+      "id": self.id,
+      "username": self.username,
+      # do not serialize the password, its a security breach
+    }
+
+from admin import setup_admin
+setup_admin(app)
+
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -44,8 +60,6 @@ def signup():
 def protected():
   current_user = get_jwt_identity()
   return jsonify({'message': f'Protected endpoint accessed by {current_user}'}), 200
-
-
 
 if __name__ == '__main__':
   app.run()
